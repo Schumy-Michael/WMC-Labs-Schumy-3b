@@ -1,0 +1,17 @@
+@if (products == null) {
+    <div class="col-12 vert_spacing">
+        <div class="card lg-3">
+            <p class="center"> Products loading, please wait... </p>
+            <p class="center"> If loading takes more than 1 minute, please refresh the page. </p>
+        </div>
+    </div>
+}
+@else {
+    <div class="shop_items">
+        <div class="row">
+            @for (product of products; track $index) {
+                <app-product [product]="product" (addToCart)="eventFired(product)"></app-product>
+            }
+        </div>
+    </div>
+}

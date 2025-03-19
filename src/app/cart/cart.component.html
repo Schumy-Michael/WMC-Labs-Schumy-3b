@@ -1,0 +1,48 @@
+@if (cartItems.length == 0) {
+    <div>
+        <div class="border p-3">
+            <p class="center">
+                There are currently no items in your cart.
+            </p>
+        </div>
+    </div>
+}
+@else {
+    <div class="container">
+        <div>
+            <div>
+                <table class="table">
+                    <thead class="text-center">
+                    <tr>
+                        <th scope="col">Produktname</th>
+                        <th scope="col">Anzahl</th>
+                        <th scope="col">Preis pro Stück</th>
+                        <th scope="col">Gesamtpreis</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    
+                    <tbody class="text-center">
+                        @for (item of cartItems; track $index) {
+                            <tr>
+                                <td>{{item.title}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>{{item.price.toFixed(2)}} €</td>
+                                <td> {{(item.price * item.quantity).toFixed(2)}}€</td>
+                                <td><button class="btn btn-danger" (click)="this.removeProduct(item)">Entfernen</button></td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> Gesamtsumme </td>
+                            <td> {{this.getPrice().toFixed(2)}} € </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+}

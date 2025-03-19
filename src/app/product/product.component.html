@@ -1,0 +1,19 @@
+<div class="col-12 vert_spacing">
+    <div class="card lg-3">
+        <div class="row g-0">
+            <div class="col-lg-6 horizontal_spacing">
+                <img src="{{product.image}}" class="img-fluid rounded-start inbounds" alt="Image loading...">
+            </div>
+            <div class="col-lg-4 horizontal_spacing">
+                <div class="card-body">
+                    <h5 class="card-title"> {{product.name}} </h5>
+                    <p class="card-text"> {{product.description}} </p>
+                </div>
+            </div>
+            <div class="col-lg-2 horizontal_spacing center">
+                <p> € {{product.price.toFixed(2)}} </p> <!-- toFixed(2) = immer 2 Nachkommastellen -->
+                <a id="item_2" class="btn btn-primary" (click)="ToCart()"> Add to cart </a>
+            </div>
+        </div>
+    </div>
+</div>
